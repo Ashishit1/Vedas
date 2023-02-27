@@ -10,13 +10,17 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class DetailsPage extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextView;
     ImageButton cont;
+    TextView hello;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +28,7 @@ public class DetailsPage extends AppCompatActivity {
 
         autoCompleteTextView = findViewById(R.id.actv_pool);
         cont = findViewById(R.id.cont);
+        hello = findViewById(R.id.hello);
         //We will use this data to inflate the drop-down items
         String[] Subjects = new String[]{"Computer Science", "Artificial intelligence", "Mechanical Engineering","Electrical Engineering"};
 
@@ -39,7 +44,10 @@ public class DetailsPage extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "" + autoCompleteTextView.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
-
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
+        if(signInAccount != null){
+            hello.setText(signInAccount.getDisplayName());
+        }
         cont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
