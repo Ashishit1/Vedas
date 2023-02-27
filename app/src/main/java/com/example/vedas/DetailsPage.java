@@ -2,24 +2,30 @@ package com.example.vedas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class DetailsPage extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextView;
+    ImageButton cont;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_page);
 
         autoCompleteTextView = findViewById(R.id.actv_pool);
-
+        cont = findViewById(R.id.cont);
         //We will use this data to inflate the drop-down items
-        String[] Subjects = new String[]{"Android", "Flutter", "React Native"};
+        String[] Subjects = new String[]{"Computer Science", "Artificial intelligence", "Mechanical Engineering","Electrical Engineering"};
 
         // create an array adapter and pass the required parameter
         // in our case pass the context, drop down layout , and array.
@@ -31,6 +37,15 @@ public class DetailsPage extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "" + autoCompleteTextView.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        cont.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
             }
         });
     }
