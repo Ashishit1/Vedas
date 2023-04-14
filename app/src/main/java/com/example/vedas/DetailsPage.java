@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +33,7 @@ public class DetailsPage extends AppCompatActivity {
 
         // create an array adapter and pass the required parameter
         // in our case pass the context, drop down layout , and array.
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.drop_item, Subjects);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.header, Subjects);
         autoCompleteTextView.setAdapter(adapter);
 
         //to get selected value add item click listener
@@ -51,8 +50,7 @@ public class DetailsPage extends AppCompatActivity {
         cont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                Intent intent = new Intent(DetailsPage.this,HomePage1.class);
                 startActivity(intent);
             }
         });
