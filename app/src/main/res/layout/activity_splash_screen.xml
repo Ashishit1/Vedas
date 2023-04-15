@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/splashScreen"
     android:layout_width="match_parent"
@@ -14,7 +15,7 @@
         android:layout_height="wrap_content">
 
         <View
-            android:id="@+id/firat_line"
+            android:id="@+id/first_line"
             android:layout_width="20dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
@@ -25,7 +26,7 @@
             android:layout_width="20dp"
             android:layout_height="100dp"
             android:layout_marginLeft="8dp"
-            android:layout_toRightOf="@+id/firat_line"
+            android:layout_toRightOf="@+id/first_line"
             android:background="@drawable/red_line" />
 
         <View
@@ -83,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="V.E.D.A.S"
+            android:text="@string/v_e_d_a_s"
             android:textColor="#fff"
             android:textSize="24sp" />
     </RelativeLayout>
@@ -104,7 +105,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="50dp"
                 android:fontFamily="cursive"
-                android:text="Android Developer"
+                android:text="@string/android_developer"
                 android:textColor="#989898"
                 android:textSize="24sp" />
 

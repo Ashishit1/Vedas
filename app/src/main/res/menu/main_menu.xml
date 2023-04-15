@@ -8,7 +8,7 @@
 
         <item android:id="@+id/nav_search"
             android:title="@string/search_text"
-            android:icon="@drawable/baseline_video_library_24"/>
+            android:icon="@drawable/search_icon"/>
 
         <item android:id="@+id/nav_book"
             android:title="@string/books"
@@ -22,20 +22,20 @@
 
     </group>
 
-    <item android:title="Profile">
+    <item android:title="@string/Profile_header">
         <menu>
             <group android:checkableBehavior="single">
-                <item android:id="@+id/nav_login"
-                    android:title="@string/login"
-                    android:icon="@drawable/menu_icon_white"/>
-
                 <item android:id="@+id/nav_profile"
                     android:title="@string/profile"
-                    android:icon="@drawable/search_icon"/>
+                    android:icon="@drawable/baseline_account_circle_24"/>
+
+                <item android:id="@+id/nav_feedback"
+                    android:title="@string/feedback"
+                    android:icon="@drawable/baseline_feedback_24"/>
 
                 <item android:id="@+id/nav_logout"
                     android:title="@string/logout"
-                    android:icon="@drawable/book_icon"/>
+                    android:icon="@drawable/baseline_logout_24"/>
 
 
             </group>
